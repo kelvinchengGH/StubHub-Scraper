@@ -55,8 +55,9 @@ def scrapeStubHub():
       savePageSourceToFile( url, filePath )
 
 ###########################
-# Scraping StubHub
+# Parsing and analyzing the data
 ###########################
+
 def getPriceList( date ):
    '''
    Reads the StubHub site's HTML for the given date,
@@ -77,11 +78,6 @@ def getPriceList( date ):
       matches = re.findall( "(\d+)</div", line )
       prices.append( int( matches[ 0 ] ) )
    return prices
-
-
-###########################
-# Parsing and analyzing the data
-###########################
 
 def getPriceTimeSeries( startDate, endDate, statFunc ):
    '''
